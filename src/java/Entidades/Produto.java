@@ -20,6 +20,7 @@ public class Produto implements Serializable {
     private String nome;
     private float valor;
     private String marca;
+  
     private Mercado mercado;
     
     // trocar por classe private String categoria;
@@ -32,6 +33,7 @@ public class Produto implements Serializable {
         this.nome = nome;
         this.valor = valor;
         this.marca = marca;
+   //     this.quantidade = quantidade;
         
     }
 
@@ -45,8 +47,7 @@ public class Produto implements Serializable {
         }
         Produto p = (Produto) o;
 
-        return (p.codigo == this.codigo && this.nome.equals(p.nome) && this.valor == p.valor && this.marca.equals(p.marca)
-                );
+        return (p.codigo == this.codigo && this.nome.equals(p.nome) && this.valor == p.valor && this.marca.equals(p.marca) );
     }
 
     @GeneratedValue(strategy = GenerationType.AUTO)
