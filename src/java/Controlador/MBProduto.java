@@ -4,6 +4,7 @@ import Entidades.ItemPedido;
 import Entidades.Mercado;
 import Entidades.Produto;
 import Exceptions.ErroInternoException;
+import Exceptions.MercadoInexistenteException;
 import Fachada.Fachada;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -87,9 +88,9 @@ public class MBProduto implements Serializable {
         this.NomeMercado = NomeMercado;
     }
     
-    public String adicionarProduto() throws ErroInternoException{
+    public String adicionarProduto() throws ErroInternoException, MercadoInexistenteException {
         try {
-    
+//            Mercado m1 = this.fachada.buscarMercadoCodigo(codigoMercdo);
             Produto p = new Produto(produto.getNome(), produto.getValor(), produto.getMarca());
             this.fachada.adicionarProduto(p);
             return "sucesso.xhtml";
@@ -98,5 +99,6 @@ public class MBProduto implements Serializable {
             return "ErroInterno.xhtml";
         }
     }
-        
+
+          
 }
