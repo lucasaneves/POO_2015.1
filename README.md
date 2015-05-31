@@ -1,2 +1,2 @@
-# POO_2015.1
+# Mercanet
 O projeto tem como finalidade a elaboração de um sistema de vendas online para supermercados. A proposta abrange qualquer mercado que tenha identificado potencial neste tipo de negócio. Quanto ao público alvo que pretendemos atingir, abrange os supermercados e os clientes. Como compras nos supermercados demandam muito tempo de quem as realiza e são momentos de estresse devido a inúmeros fatores, dentre eles: encontrar produtos desejados, espera em filas enormes e o transporte dos produtos até seu destino.
