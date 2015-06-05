@@ -1,4 +1,3 @@
-
 package Persistencia;
 
 import Entidades.Produto;
@@ -9,7 +8,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 
 @Stateless
 public class RepositorioProdutoJPA implements RepositorioProduto {
@@ -27,7 +25,7 @@ public class RepositorioProdutoJPA implements RepositorioProduto {
         }
     }
 
-        @Override
+    @Override
     public List<Produto> listarProdutos() throws ErroInternoException {
         try {
             TypedQuery<Produto> consulta = this.em.createQuery("select p from Produto p", Produto.class);

@@ -1,4 +1,3 @@
-
 package Exceptions;
 
 public class ProdutoInexistenteException extends Exception{

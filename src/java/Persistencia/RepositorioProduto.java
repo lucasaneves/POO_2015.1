@@ -1,4 +1,3 @@
-
 package Persistencia;
 
 import Entidades.Produto;
@@ -17,5 +16,7 @@ public interface RepositorioProduto extends Serializable {
     public List<Produto> buscarProdutoMarca (String marca) throws ErroInternoException, ProdutoInexistenteException;
     public void removerProdutoCodigo(long codigo) throws ErroInternoException, ProdutoInexistenteException;
     public void atualizarProduto(Produto produto) throws ErroInternoException, ProdutoInexistenteException;
-       
+    
+   
+    
 }

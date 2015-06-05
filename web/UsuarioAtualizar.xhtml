@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Atualizar</title>
+        <meta name="viewport" content="width=device-width"/>
+    </h:head>
+    <h:body>
+         <h:form>
+        <h:outputText value="Seja Bem Vindo #{mBUsuario.login} !" />
+       </h:form>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/UsuarioIndex.xhtml"/>  
+                <p:menuitem value="Excluir Conta" icon="img.excluir.png" url="/faces/UsuarioRemoverEmail.xhtml"/>
+                <p:menuitem value="Atualizar Conta" icon="img.atualizar.png" url="/faces/UsuarioAtualizar.xhtml"/>
+                <p:menuitem value="Buscar Produto" icon="img.Localizar.png" url="/faces/UsuarioBuscarProduto.xhtml"/>
+                <p:menuitem value="Carrinho" icon="img.carrinho.png" url="/faces/Pedido.xhtml"/> 
+                <p:menuitem value="Logout" icon="img.logout.png" url="/faces/UsuarioLogout.xhtml"/>
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:panel header="Atualizar" footer="MercaNET" >    
+            <h:form>
+                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                 <h:panelGrid columns="2"> 
+                    
+                    <h:outputText value="Nome:          " /> 
+                    <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBUsuario.usuario.nome}" > 
+                    
+                    </p:inputText>
+                    
+                    <h:outputText value="Cpf:           " /> 
+                    <p:outputLabel value="#{mBUsuario.usuario.cpf}" />
+                       
+                   <h:outputText value="Endereço:      " /> 
+                    <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBUsuario.usuario.endereco}" >
+                    
+                    </p:inputText>
+                    
+                    <h:outputText value="Bairro:        " /> 
+                    <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBUsuario.usuario.bairro}" >
+                    
+                    </p:inputText>
+                    
+                    <h:outputText value="Cidade:        " /> 
+                    <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBUsuario.usuario.cidade}" >
+                       
+                    </p:inputText>
+                    
+                    <h:outputText value="Cep:           " /> 
+                    <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="99999-999" value="#{mBUsuario.usuario.cep}" >
+                        
+                    </p:inputMask>
+                    
+                    <h:outputText value="UF:            " /> 
+                    <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBUsuario.usuario.uf}" >
+                       
+                    </p:inputText>
+                    
+                    <h:outputText value="Telefone:      " /> 
+                    <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="(99)9999-9999" value="#{mBUsuario.usuario.telefone}" >
+                    
+                    </p:inputMask>
+                    
+                    <h:outputText value="Email:         " /> 
+                    <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBUsuario.usuario.email}" >
+                        
+                    </p:inputText>
+                    
+                    <h:outputText value="Data Nascimento: " /> 
+                    <p:calendar value="#{mBUsuario.usuario.dataNascimento}"   
+                                id="datanasc"   
+                                showOn="button"  
+                                pattern="dd/MM/yyyy"  
+                                locale="pt_BR"></p:calendar>
+                        
+                    <h:outputText value="Senha:" /> 
+                    <p:password required="true" requiredMessage="O campo deve ser preenchido" feedback="false" value="#{mBUsuario.usuario.senha}"></p:password>
+                    
+                    <p:commandButton value="Atualizar" action="#{mBUsuario.atualizarUsuario()}" />
+                    <p:commandButton value="Voltar" onclick="history.go(-1);"/>
+                   
+                 </h:panelGrid> 
+            </h:form>
+            </p:panel>
+    </h:body>
+</html>

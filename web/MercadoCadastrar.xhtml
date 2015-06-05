@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de Mercado</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/index.xhtml"/>  
+                <p:menuitem value="Cadastrar" icon="img.cadastrar.png" url="/faces/UsuarioCadastrar.xhtml"/> 
+                </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+       <p:fieldset legend="Cadastrar Mercado" >
+                <br/>
+                <p:tabView id="tbv1">
+                    <p:tab title="Mercado">
+                        <h:form>
+                            <p:growl id="msg0"/>
+                            <h:panelGrid columns="2"> 
+
+                                <h:outputText value="Nome:          " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.nome}" /> 
+                                <h:outputText value="CNPJ:           " /> 
+                                <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="99.999.999/9999-99" value="#{mBMercado.mercado.cnpj}" />
+                                <h:outputText value="Endereço:      " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.endereco}" />
+                                <h:outputText value="Bairro:        " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.bairro}" />
+                                <h:outputText value="Cidade:        " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.cidade}" />
+                                <h:outputText value="Cep:           " /> 
+                                <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="99999-999" value="#{mBMercado.mercado.cep}" />
+                                <h:outputText value="UF:            " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.uf}" />
+                                <h:outputText value="Telefone:      " /> 
+                                <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="(99)9999-9999" value="#{mBMercado.mercado.telefone}" />
+                                <h:outputText value="Senha:" /> 
+                                <p:password required="true" requiredMessage="O campo deve ser preenchido" feedback="false" value="#{mBMercado.mercado.senha}" />
+                    
+                                <p:commandButton value="Salvar" action="#{mBMercado.adicionarMercado()}" image="ui-icon ui-icon-disk"/>
+                               
+                            </h:panelGrid>
+                        </h:form>
+                    </p:tab>
+                    
+                    
+                </p:tabView>
+                
+            </p:fieldset>  
+    </h:body>
+</html>

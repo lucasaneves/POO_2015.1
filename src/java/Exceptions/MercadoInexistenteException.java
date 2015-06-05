@@ -1,4 +1,3 @@
-
 package Exceptions;
 
 public class MercadoInexistenteException extends Exception{

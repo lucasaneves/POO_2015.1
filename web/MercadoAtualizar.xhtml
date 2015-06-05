@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Remover Mercado</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:outputLabel value="Seja Bem Vindo #{mBMercado.login} !" />
+
+        </h:form>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/MercadoIndex.xhtml"/>  
+                <p:menuitem value="Produtos" icon="img.portfolio.png" url="/faces/MercadoCadastrarProduto.xhtml"/>
+                <p:menuitem value="Excluir Conta" icon="img.excluir.png" url="/faces/MercadoRemoverCnpj.xhtml"/>
+                <p:menuitem value="Atualizar Conta" icon="img.atualizar.png" url="/faces/MercadoAtualizar.xhtml"/>
+                <p:menuitem value="Pedidos" icon="img.carrinho.png" url="/faces/MercadoPedido.xhtml"/> 
+                <p:menuitem value="Logout" icon="img.logout.png" url="/faces/MercadoLogout.xhtml"/>
+
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:panel header="Remover Mercado" footer="MercaNET">
+            <h:form>
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            <h:panelGrid columns="2"> 
+               <h:panelGrid columns="2"> 
+
+                                <h:outputText value="Nome:          " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.nome}" /> 
+                                <h:outputText value="CNPJ:           " /> 
+                                <p:outputLabel value="#{mBMercado.mercado.cnpj}" />
+                                <h:outputText value="Endereço:      " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.endereco}" />
+                                <h:outputText value="Bairro:        " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.bairro}" />
+                                <h:outputText value="Cidade:        " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.cidade}" />
+                                <h:outputText value="Cep:           " /> 
+                                <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="99999-999" value="#{mBMercado.mercado.cep}" />
+                                <h:outputText value="UF:            " /> 
+                                <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBMercado.mercado.uf}" />
+                                <h:outputText value="Telefone:      " /> 
+                                <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="(99)9999-9999" value="#{mBMercado.mercado.telefone}" />
+                                <h:outputText value="Senha:" /> 
+                                <p:password required="true" requiredMessage="O campo deve ser preenchido" feedback="false" value="#{mBMercado.mercado.senha}" />
+                    
+                                <p:commandButton value="Atualizar" action="#{mBMercado.atualizarMercado()}" />
+                                <p:commandButton value="Voltar" onclick="history.go(-1);"/>
+                            </h:panelGrid>
+            </h:panelGrid></h:form></p:panel>
+    </h:body>
+</html>

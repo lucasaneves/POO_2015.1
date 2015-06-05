@@ -11,14 +11,24 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Mercado</title>
+        <title>MercaNET</title>
     </h:head>
     <h:body>
         <h:form>
-            <p:outputLabel value="Seja Bem Vindo!" />
+            <p:outputLabel value="Seja Bem Vindo #{mBMercado.login} !" />
 
         </h:form>
-        
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/MercadoIndex.xhtml"/>  
+                <p:menuitem value="Produtos" icon="img.portfolio.png" url="/faces/MercadoCadastrarProduto.xhtml"/>
+                <p:menuitem value="Excluir Conta" icon="img.excluir.png" url="/faces/MercadoRemoverCnpj.xhtml"/>
+                <p:menuitem value="Atualizar Conta" icon="img.atualizar.png" url="/faces/MercadoAtualizar.xhtml"/>
+                <p:menuitem value="Pedidos" icon="img.carrinho.png" url="/faces/MercadoPedido.xhtml"/> 
+                <p:menuitem value="Logout" icon="img.logout.png" url="/faces/MercadoLogout.xhtml"/>
+
+            </p:dock>     
+        </h:form> 
         <br /><br /><br /><br />
         <p:panel header="Cadastro de Produtos" footer="" >
             <h:form>
@@ -29,7 +39,10 @@ and open the template in the editor.
                     <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBProduto.produto.marca}" /> 
                     <h:outputText value="Valor:          " /> 
                     <p:inputText required="true" requiredMessage="O campo deve ser preenchido" value="#{mBProduto.produto.valor}" /> 
+                    <h:outputText value="Codigo do Mercado:          " /> 
+                    <p:outputLabel value="#{mBMercado.codigo}" />
                     <p:commandButton value="Cadastrar" action="#{mBProduto.adicionarProduto()}" update="@form" >
+                        <f:setPropertyActionListener target="#{mBProduto.codigoMercdo}" value="#{mBMercado.codigo}" />
                     </p:commandButton>
             </h:panelGrid>
             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />

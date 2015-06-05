@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,17 +15,20 @@ public class Produto implements Serializable {
     private String nome;
     private float valor;
     private String marca;
-  
     private Mercado mercado;
-        
+    
+    // trocar por classe private String categoria;
+
     public Produto() {
 
     }
 
-    public Produto(String nome, float valor, String marca) {
+    public Produto(String nome, float valor, String marca, Mercado mercado) {
         this.nome = nome;
         this.valor = valor;
         this.marca = marca;
+        this.mercado = mercado;
+        
         
     }
 
@@ -38,7 +42,8 @@ public class Produto implements Serializable {
         }
         Produto p = (Produto) o;
 
-        return (p.codigo == this.codigo && this.nome.equals(p.nome) && this.valor == p.valor && this.marca.equals(p.marca) );
+        return (p.codigo == this.codigo && this.nome.equals(p.nome) && this.valor == p.valor && this.marca.equals(p.marca)
+                );
     }
 
     @GeneratedValue(strategy = GenerationType.AUTO)
