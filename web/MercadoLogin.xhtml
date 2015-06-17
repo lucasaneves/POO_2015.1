@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login Mercado</title>
+        <meta name="viewport" content="width=device-width"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/index.xhtml"/>  
+                <p:menuitem value="Login" icon="img.login.png" url="/faces/Login.xhtml"/> 
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:fieldset legend="Login Mercado" >
+            <h:form>
+                <h:panelGrid columns="2">
+                    
+                    <h:outputText value="CNPJ:"/>
+                    <p:inputMask required="true" requiredMessage="O campo deve ser preenchido" mask="99.999.999/9999-99" value="#{mBMercado.mercado.cnpj}" />
+                    <h:outputText value="Senha:"/>
+                    <p:password required="true" requiredMessage="O campo deve ser preenchido" feedback="false" value="#{mBMercado.mercado.senha}" />
+                    <h:outputText value=""/>
+                    <p:commandButton value="Logar" action="#{mBMercado.autenticarMercado()}" />
+                    <h:outputText value=""/>
+                    <a href="/MercadoON/faces/MercadoCadastrar.xhtml">Cadastre-se</a>
+                    <br />
+                </h:panelGrid>
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            </h:form>   
+        </p:fieldset>    
+    </h:body>
+</html>
+

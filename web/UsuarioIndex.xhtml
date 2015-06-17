@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>MercaNET</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:outputText value="Seja Bem Vindo #{mBUsuario.login} !" />
+       </h:form>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/UsuarioIndex.xhtml"/>  
+                <p:menuitem value="Excluir Conta" icon="img.excluir.png" url="/faces/UsuarioRemoverEmail.xhtml"/>
+                <p:menuitem value="Atualizar Conta" icon="img.atualizar.png" url="/faces/UsuarioAtualizar.xhtml"/>
+                <p:menuitem value="Buscar Produto" icon="img.Localizar.png" url="/faces/UsuarioBuscarProduto.xhtml"/>
+                <p:menuitem value="Carrinho" icon="img.carrinho.png" url="/faces/Pedido.xhtml"/> 
+                <p:menuitem value="Logout" icon="img.logout.png" url="/faces/UsuarioLogout.xhtml"/>
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:panel header="Produtos" footer="MercaNET" >    
+            <h:form>
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                <p:dataTable value="#{mBProduto.listarProdutos}" var="pr">
+                    
+                    <p:column headerText="NOME">
+                        <h:outputText value="#{pr.nome}"/>
+                    </p:column>
+                    <p:column headerText="MARCA">
+                        <h:outputText value="#{pr.marca}"/>
+                    </p:column>
+                    <p:column headerText="VALOR">
+                        <h:outputText value="#{pr.valor}"/>
+                    </p:column>
+                    <p:column headerText="Mercado">
+                        <h:outputText value="#{pr.mercado.nome}"/>
+                    </p:column>
+                    <p:column headerText="AÇÕES">
+                        <p:column>
+                        <h:outputText value="Quantidade"/>
+                        <p:inputText value="#{mBUsuario.quantidade}" />
+                        </p:column>
+                        <p:column>
+                        <p:commandButton id="BTNcomprar" action="#{mBUsuario.adicionarAoCarrinho()}" value="Comprar" ajax="false" title="Comprar">
+                            <f:setPropertyActionListener target="#{mBUsuario.produto.codigo}" value="#{pr.codigo}" />
+                            <f:setPropertyActionListener target="#{mBUsuario.produto.nome}" value="#{pr.nome}" />
+                            <f:setPropertyActionListener target="#{mBUsuario.produto.marca}" value="#{pr.marca}" />
+                            <f:setPropertyActionListener target="#{mBUsuario.produto.valor}" value="#{pr.valor}" />
+                            <f:setPropertyActionListener target="#{mBUsuario.produto.mercado}" value="#{pr.mercado}" />
+                        </p:commandButton>
+                        </p:column>
+                    </p:column>
+                    
+                   
+                </p:dataTable>
+                
+            </h:form>
+            </p:panel>
+
+    </h:body>
+</html>

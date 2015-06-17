@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/index.xhtml"/>  
+                <p:menuitem value="Login" icon="img.login.png" url="/faces/Login.xhtml"/> 
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:fieldset legend="Login" >
+            <h:form>
+                <h:panelGrid columns="2">
+                    <p:commandButton id="btnUsuario" value="Usuario" action="UsuarioLogin.xhtml" ajax="false"/>
+                    <p:commandButton id="btnMercado" value="Mercado" action="MercadoLogin.xhtml" ajax="false"/>
+                </h:panelGrid>
+             </h:form>   
+        </p:fieldset>     
+    </h:body>
+</html>

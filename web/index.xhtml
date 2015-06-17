@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>MercaNET</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/index.xhtml"/>  
+                <p:menuitem value="Login" icon="img.login.png" url="/faces/Login.xhtml"/> 
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:panel header="Produtos" footer="MercaNET - Faça Login para ter melhor acesso ao Sistema!" >    
+            <h:form>
+                <p:dataTable value="#{mBProduto.listarProdutos}" var="c">
+                    <p:column headerText="NOME">
+                        <h:outputText value="#{c.nome}"/>
+                    </p:column>
+                    <p:column headerText="MARCA">
+                        <h:outputText value="#{c.marca}"/>
+                    </p:column>
+                    <p:column headerText="VALOR">
+                        <h:outputText value="#{c.valor}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
+

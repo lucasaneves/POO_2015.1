@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listar Todos</title>
+        
+    </h:head>
+    <h:body>
+         <h:form>
+        <h:outputText value="Seja Bem Vindo #{mBUsuario.login} !" />
+       </h:form>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/UsuarioIndex.xhtml"/>  
+                <p:menuitem value="Excluir Conta" icon="img.excluir.png" url="/faces/UsuarioRemoverEmail.xhtml"/>
+                <p:menuitem value="Atualizar Conta" icon="img.atualizar.png" url="/faces/UsuarioAtualizar.xhtml"/>
+                <p:menuitem value="Buscar Produto" icon="img.Localizar.png" url="/faces/UsuarioBuscarProduto.xhtml"/>
+                <p:menuitem value="Carrinho" icon="img.carrinho.png" url="/faces/Pedido.xhtml"/> 
+                <p:menuitem value="Logout" icon="img.logout.png" url="/faces/UsuarioLogout.xhtml"/>
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+         <p:panel header="Listar Usuarios" footer="MercaNET" >    
+        <h:form>
+            <p:dataTable value="#{mBUsuario.listaTodos}" var="c">
+                
+                <p:column headerText="Nome">
+                    <h:outputText value="#{c.nome}"/>
+                </p:column>
+                <p:column headerText="CPF">
+                    <h:outputText value="#{c.cpf}"/>
+                </p:column>
+                <p:column headerText="Endereço">
+                    <h:outputText value="#{c.endereco}"/>
+                </p:column>
+                <p:column headerText="Bairro">
+                    <h:outputText value="#{c.bairro}"/>
+                </p:column>
+                <p:column headerText="Cidade">
+                    <h:outputText value="#{c.cidade}"/>
+                </p:column>
+                <p:column headerText="CEP">
+                    <h:outputText value="#{c.cep}"/>
+                </p:column>
+                <p:column headerText="UF">
+                    <h:outputText value="#{c.uf}"/>
+                </p:column>
+                <p:column headerText="Telefone">
+                    <h:outputText value="#{c.telefone}"/>
+                </p:column>
+                <p:column headerText="Email">
+                    <h:outputText value="#{c.email}"/>
+                </p:column>
+                <p:column headerText="Data de Nascimento">
+                    <h:outputText value="#{c.dataNascimento}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form></p:panel>
+    </h:body>
+</html>

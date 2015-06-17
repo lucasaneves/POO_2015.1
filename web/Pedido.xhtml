@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>MercaNET</title>
+        <meta name="viewport" content="width=device-width"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:outputText value="Seja Bem Vindo #{mBUsuario.login} !" />
+       
+        </h:form>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/UsuarioIndex.xhtml"/>  
+                <p:menuitem value="Produtos" icon="img.portfolio.png" url="/faces/listarProdutos.xhtml"/>
+                <p:menuitem value="Excluir Conta" icon="img.excluir.png" url="/faces/UsuarioRemoverEmail.xhtml"/>
+                <p:menuitem value="Atualizar Conta" icon="img.atualizar.png" url="/faces/UsuarioAtualizar.xhtml"/>
+                <p:menuitem value="Buscar Produto" icon="img.Localizar.png" url="/faces/UsuarioBuscarProduto.xhtml"/>
+                <p:menuitem value="Carrinho" icon="img.carrinho.png" url="/faces/Pedido.xhtml"/> 
+                <p:menuitem value="Historico" icon="img.historico.png" url="/faces/UsuarioHistorico.xhtml"/> 
+                <p:menuitem value="Logout" icon="img.logout.png" url="/faces/UsuarioLogout.xhtml"/>
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:panel header="Carrinho" footer="MercaNET" >
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            <h:form>
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                <p:dataTable value="#{mBUsuario.carrinhoCompras}" var="carrinho"  id="tblcarrinho">
+                    <p:column headerText="Codigo">
+                        <h:outputText value="#{carrinho.produto.codigo}"/>
+                    </p:column>
+                    <p:column headerText="Quantidade">
+                        <h:outputText value="#{carrinho.quantidade}"/>
+                    </p:column>
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{carrinho.produto.nome}"/>
+                    </p:column>
+                    <p:column headerText="Marca">
+                        <h:outputText value="#{carrinho.produto.marca}"/>
+                    </p:column>
+                    <p:column headerText="Marca">
+                        <h:outputText value="#{carrinho.produto.mercado.nome}"/>
+                    </p:column>
+                    <p:column headerText="Valor">
+                        <h:outputText value="#{carrinho.produto.valor}"/>
+                    </p:column>
+                </p:dataTable>
+                <br /> <br />
+                <h:form>
+                    <p:commandButton value="Finalizar Pedido" action="#{mBUsuario.finalizarPedido()}" />
+                             
+                    <p:commandButton value="Limpar" action="#{mBUsuario.limparCampos()}" />
+                </h:form>
+            </h:form></p:panel>
+    </h:body>
+</html>
