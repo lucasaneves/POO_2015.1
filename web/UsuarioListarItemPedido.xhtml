@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>MercaNET</title>
+    </h:head>
+    <h:body>
+         <h:form>
+        <h:outputText value="Seja Bem Vindo #{mBUsuario.login} !" />
+       </h:form>
+        <h:form>
+            <p:dock position="top">  
+                <p:menuitem value="Home" icon="img.home.png" url="/faces/UsuarioIndex.xhtml"/>  
+                <p:menuitem value="Excluir Conta" icon="img.excluir.png" url="/faces/UsuarioRemoverEmail.xhtml"/>
+                <p:menuitem value="Atualizar Conta" icon="img.atualizar.png" url="/faces/UsuarioAtualizar.xhtml"/>
+                <p:menuitem value="Buscar Produto" icon="img.Localizar.png" url="/faces/UsuarioBuscarProduto.xhtml"/>
+                <p:menuitem value="Carrinho" icon="img.carrinho.png" url="/faces/Pedido.xhtml"/> 
+                <p:menuitem value="Logout" icon="img.logout.png" url="/faces/UsuarioLogout.xhtml"/>
+            </p:dock>     
+        </h:form> 
+        <br /><br /><br /><br />
+        <p:panel header="Produtos" footer="MercaNET" >    
+            <h:form>
+                <h:messages/>
+                <p:dataTable value="#{mBItemPedido.getlistansItemPedidos}" var="pd">
+                    
+                    <p:column headerText="Codigo">
+                        <h:outputText value="#{pd.codigo}"/>
+                    </p:column>
+                    <p:column headerText="Quantidade">
+                        <h:outputText value="#{pd.quantidade}"/>
+                    </p:column>
+                    <p:column headerText="Produto">
+                        <h:outputText value="#{pd.produto}"/>
+                    </p:column>
+                    <p:column headerText="AÇÕES">
+                        <p:commandButton id="comprar" action="#{mBPedido.adicionarPedido()}" value="Finalizar">
+                            <f:setPropertyActionListener target="#{mBPedido.pedido.codigo}" value="#{pd.codigo}" />
+                            <f:setPropertyActionListener target="#{mBPedido.quantidade}" value="#{pd.quantidade}" />
+                            <f:setPropertyActionListener target="#{mBPedido.produto}" value="#{pd.produto}" />
+                        </p:commandButton>
+                        
+                    </p:column>
+                    
+                   
+                </p:dataTable>
+            </h:form>
+            </p:panel>
+
+    </h:body>
+</html>
